@@ -27,8 +27,7 @@ function addToCart(item){
   let cardPrice = item.children[2].innerHTML;
   cardPrice = cardPrice.substring(1);
   sum += parseFloat(cardPrice);
-  console.log(countItems);
-  totalPrice.innerText = countItems;
+  totalPrice.innerText = "Total: " + "$" + sum;
   sideBar.innerHTML +=
         `
         <div class="item" >
