@@ -1,0 +1,119 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+
+  }
+  .Header {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+  }
+  .input-div{
+    display: flex;
+    width: 55rem;
+  }
+  .button-div{
+    display: flex;
+    margin-left: auto;
+    margin-right: 2rem;
+  }
+  main {
+    padding: 1rem;
+  }
+  .hide{
+    display: none;
+  } 
+  .show{
+    display: block;
+  }
+  .item-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+    flex: 1;
+  }
+  .sidebar{
+    position: -webkit-sticky;
+    position: sticky;
+    flex:0.2;
+    top: 0;
+    right: 0;
+    height: 70vh;
+    margin-right: 3rem;
+    padding: 2rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .item {
+    display: flex;
+    flex-direction: column;
+    right: -100%;
+    transition: 0.3s;
+  }
+  .cancel{
+    cursor: pointer;
+    height: 2rem;
+    background-color: white;
+    border: none;
+  }
+
+  img{
+    width: 15rem;
+  }
+  .shop-btn{
+    display: flex;
+    background-color: #333;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 0.5rem;
+    border:none;
+    cursor: pointer;
+    flex: 0.01;
+    width: 30%;
+  }
+#add-to-cart-button{
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 15rem;
+}
+  .itemImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .total-body{
+    display: flex;
+  }
+#text-input{
+  flex:1;
+  margin-right: 20rem;
+  border: none;
+  border-bottom: 1px solid #333;
+  outline: none;
+  font-size: 1rem;
+  border-radius: 5px;
+  padding-left: 1rem;
+  padding: 1rem;
+  margin-left: 1rem;
+}
+  @media (max-width: 600px) {
+    .item-grid {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  
+  @media (min-width: 601px) and (max-width: 900px) {
+    .item-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
