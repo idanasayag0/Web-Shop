@@ -17,7 +17,7 @@
             <input type="text" id="text-input" placeholder="Search items">
           </div>
           <div class="button-div">
-            <button class="shop-btn" id="shop-btn"><i class="fas fa-cart-arrow-down fa-3x"></i></button>
+            <button class="shop-btn" id="shop-btn"><i class="fas fa-cart-arrow-down fa-3x non-emtpy"></i></button>
           </div>
         </div>
       <main>
@@ -77,8 +77,9 @@
           <ul id="cart-items">
             <!-- cart items will be added here -->
           </ul>
-            <p id="total">Total: $0</p>
-            <button id="add-to-cart-button">Payment</button>
+            <p id="total">Total Price: $0</p>
+            <p id="total" class="totalItems">Total Items: 0</p>
+            <button id="add-to-cart-button" onclick="payment()">Payment</button>
         </div>
 
       </div>

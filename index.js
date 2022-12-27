@@ -3,6 +3,8 @@ const sideBar = document.getElementById('cart');
 const searchBar = document.getElementById('text-input');
 const allItems = document.getElementById("item-grid");
 const totalPrice = document.getElementById("total");
+const totalItems = document.querySelector(".totalItems");
+const root = document.querySelector(':root');
 let countItems =0;
 let sum =0;
 if(countItems==0){
@@ -23,7 +25,6 @@ const itemArr = [];
 function addToCart(item){
   const cardImg = item.children[0].src;
   const cardTitle = item.children[1].innerHTML;
-
   // for(let i=0; i<itemArr.length; i++){
   //   if(itemArr[i] == cardTitle){
   //     console.log("work");
@@ -37,8 +38,9 @@ function addToCart(item){
   cardPrice = cardPrice.substring(1);
   sum += parseFloat(cardPrice);
   // totalPrice.innerText = "Total: " + "$" + sum;
-  document.getElementById("total").innerHTML = "Total: " + "$" + sum;
-  console.log(itemArr);
+  document.getElementById("total").innerHTML = "Total Price: " + "$" + sum;
+  document.querySelector(".totalItems").innerHTML = "Total Items: " + countItems;
+  root.style.setProperty('--after-content', `"${countItems}"`)
   sideBar.innerHTML +=
         `
         <div class="item">
@@ -72,14 +74,25 @@ function removeItem(id){
   // split the id to get the price and subtract it from the sum
   const price = id.split("/+/")[1];
   sum -= parseFloat(price);
-  document.getElementById("total").innerHTML = "Total: " + "$" + sum;
+  document.getElementById("total").innerHTML = "Total Price: " + "$" + sum;
   const item = document.getElementById(id);
   item.parentElement.parentElement.parentElement.remove();
   // totalPrice.innerHTML = "Total: " + "$"- sum;
   itemArr.pop(id);
   countItems--;
+  root.style.setProperty('--after-content', `"${countItems}"`)
+  document.querySelector(".totalItems").innerHTML = "Total Items: " + countItems;
   if(countItems==0){
+    root.style.setProperty('--after-content', `""`)
     sideBar.classList.remove('show');
     sideBar.classList.add('hide');
   }
+}
+
+function payment(){
+  if(countItems==0){
+    alert("Please add items to your cart before checking out!");
+    return;
+  }
+  alert("Thank you for your purchase!");
 }

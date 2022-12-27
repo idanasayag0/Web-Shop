@@ -3,6 +3,9 @@ body {
     padding: 0;
     font-family: sans-serif;
   }
+  :root{
+    --after-content:'';
+  }
   #sidebar-header{
     display: flex;
     justify-content: space-between;
@@ -93,6 +96,19 @@ body {
     right: -100%;
     transition: 0.3s;
     padding-bottom: 1.5rem;
+  }
+  .non-emtpy::after{
+    content: var(--after-content);
+    font-size: 23px;
+    width:25px;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    top: -75px;
+    right:-2rem;
+    background-color: rgb(253, 253, 253);
+    border-radius: 50%;
+    color: black;
   }
   .cancel{
     cursor: pointer;
