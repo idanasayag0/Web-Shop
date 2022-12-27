@@ -19,23 +19,34 @@ shopBtn.addEventListener('click', function(){
   }
 });
 
-
+const itemArr = [];
 function addToCart(item){
-  countItems++;
   const cardImg = item.children[0].src;
   const cardTitle = item.children[1].innerHTML;
+
+  // for(let i=0; i<itemArr.length; i++){
+  //   if(itemArr[i] == cardTitle){
+  //     console.log("work");
+  //     return;
+  //   }
+  // }
+
+  countItems++;
+  itemArr.push(cardTitle);
   let cardPrice = item.children[2].innerHTML;
   cardPrice = cardPrice.substring(1);
   sum += parseFloat(cardPrice);
-  totalPrice.innerText = "Total: " + "$" + sum;
+  // totalPrice.innerText = "Total: " + "$" + sum;
+  document.getElementById("total").innerHTML = "Total: " + "$" + sum;
+  console.log(itemArr);
   sideBar.innerHTML +=
         `
-        <div class="item" >
+        <div class="item">
           <div class="details">
-            <h3>${cardTitle}</h3>
+            <h3 id="itemShopTitle">${cardTitle}</h3>
               <p>
-                <span class="price">Price: ${cardPrice}</span>
-                <button class="cancel" onclick="removeItem(this.id)" id="${cardTitle}"><i class="fas fa-window-close fa-2x"></i></button>
+                <span class="price">Price: $${cardPrice}</span>
+                <button class="cancel" onclick="removeItem(this.id)" id="${cardTitle + "/+/" +  cardPrice}"><i class="fas fa-window-close fa-2x"></i></button>
               </p>
             </div>   
           <img src="${cardImg}"> 
@@ -44,7 +55,7 @@ function addToCart(item){
 
 }
 
-searchBar.addEventListener('change', function(){
+searchBar.addEventListener('input', function(){
   const search = searchBar.value;
   for(let i=0; i<allItems.children.length; i++){
     if(allItems.children[i].children[1].innerHTML.toLowerCase().includes(search.toLowerCase())){
@@ -54,15 +65,20 @@ searchBar.addEventListener('change', function(){
       allItems.children[i].style.display = "none";
     }
   }
+
 });
 
-function removeItem(e){
-  const item = document.getElementById(e);
+function removeItem(id){
+  // split the id to get the price and subtract it from the sum
+  const price = id.split("/+/")[1];
+  sum -= parseFloat(price);
+  document.getElementById("total").innerHTML = "Total: " + "$" + sum;
+  const item = document.getElementById(id);
   item.parentElement.parentElement.parentElement.remove();
-  totalPrice.innerHTML = "Total: " + "$"- sum;
+  // totalPrice.innerHTML = "Total: " + "$"- sum;
+  itemArr.pop(id);
   countItems--;
   if(countItems==0){
-    totalPrice.innerText = 100;
     sideBar.classList.remove('show');
     sideBar.classList.add('hide');
   }

@@ -10,6 +10,9 @@
 </head>
 <body>
         <div class="Header">
+          <div class="logo">
+            <p id="logo">WebStore</p>
+          </div>
           <div class="input-div">
             <input type="text" id="text-input" placeholder="Search items">
           </div>
@@ -18,68 +21,67 @@
           </div>
         </div>
       <main>
-          <h2>Featured Items</h2>
       <div class="total-body">
         <div class="item-grid" id="item-grid">
           <div class="item" id="item1">
             <img src="./img/product1.jpg" alt="Item 1">
-            <h3>Item 1</h3>
-            <p>$50</p>
+            <h3>Adidas T-Shirt</h3>
+            <p class="price">$50</p>
             <button id="add-to-cart-button" onclick="addToCart(item1)">Add to Cart</button>
           </div>
           <div class="item" id="item2">
             <img src="./img/product2.jpg" alt="Item 2">
-            <h3>Item 2</h3>
-            <p>$50</p>
+            <h3>Airpods</h3>
+            <p class="price">$250</p>
             <button id="add-to-cart-button" onclick="addToCart(item2)">Add to Cart</button>
           </div>
           <div class="item" id="item3">
             <img src="./img/product3.jpg" alt="Item 3">
-            <h3>Item 3</h3>
-            <p>$50</p>
+            <h3>Coat</h3>
+            <p class="price">$150</p>
             <button id="add-to-cart-button" onclick="addToCart(item3)">Add to Cart</button>
           </div>
           <div class="item" id="item4">
             <img src="./img/product4.jpg" alt="Item 4">
-            <h3>Item 4</h3>
-            <p>$50</p>
+            <h3>Adidas Bottle</h3>
+            <p class="price">$50</p>
             <button id="add-to-cart-button" onclick="addToCart(item4)">Add to Cart</button>
           </div>
           <div class="item" id="item5">
             <img src="./img/product5.jpg" alt="Item 5">
-            <h3>Item 5</h3>
-            <p>$50</p>
+            <h3>Glasses</h3>
+            <p class="price">$93</p>
             <button id="add-to-cart-button" onclick="addToCart(item5)">Add to Cart</button>
           </div>
           <div class="item" id="item6">
             <img src="./img/product6.jpg" alt="Item 6">
-            <h3>Item 6</h3>
-            <p>$50</p>
+            <h3>Adidas Hat</h3>
+            <p class="price">$46</p>
             <button id="add-to-cart-button" onclick="addToCart(item6)">Add to Cart</button>
           </div>
           <div class="item" id="item7">
             <img src="./img/product7.jpg" alt="Item 7">
-            <h3>Item 7</h3>
-            <p>$50</p>
+            <h3>Adidas Bag</h3>
+            <p class="price">$57</p>
             <button id="add-to-cart-button" onclick="addToCart(item7)">Add to Cart</button>
           </div>
           <div class="item" id="item8">
             <img src="./img/product8.jpg" alt="Item 8">
-            <h3>Item 8</h3>
-            <p>$50</p>
+            <h3>Adidas Shoes</h3>
+            <p class="price">$346</p>
             <button id="add-to-cart-button" onclick="addToCart(item8)">Add to Cart</button>
           </div>
         </div>
         <div id="cart" class="sidebar hide show">
-          <h2>Shopping Cart</h2>
+          <h2 id="sidebar-header">Shopping Cart</h2>
           <ul id="cart-items">
             <!-- cart items will be added here -->
           </ul>
-          <p id="total">Total: $0</p>
+            <p id="total">Total: $0</p>
+            <button id="add-to-cart-button">Payment</button>
         </div>
 
       </div>
-
     <script src="index.js"></script>
 </body>
 </html>
