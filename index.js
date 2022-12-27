@@ -34,7 +34,7 @@ function addToCart(item){
 
   countItems++;
   itemArr.push(cardTitle);
-  let cardPrice = item.children[2].innerHTML;
+  let cardPrice = item.children[3].innerHTML;
   cardPrice = cardPrice.substring(1);
   sum += parseFloat(cardPrice);
   // totalPrice.innerText = "Total: " + "$" + sum;
@@ -95,4 +95,5 @@ function payment(){
     return;
   }
   alert("Thank you for your purchase!");
+  location.reload();
 }
