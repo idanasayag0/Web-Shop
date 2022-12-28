@@ -22,25 +22,28 @@ shopBtn.addEventListener('click', function(){
 });
 
 const itemArr = [];
+// const mapTest = new Map();
 function addToCart(item){
   const cardImg = item.children[0].src;
   const cardTitle = item.children[1].innerHTML;
-  // for(let i=0; i<itemArr.length; i++){
-  //   if(itemArr[i] == cardTitle){
-  //     console.log("work");
-  //     return;
-  //   }
-  // }
 
   countItems++;
   itemArr.push(cardTitle);
   let cardPrice = item.children[3].innerHTML;
   cardPrice = cardPrice.substring(1);
   sum += parseFloat(cardPrice);
-  // totalPrice.innerText = "Total: " + "$" + sum;
   document.getElementById("total").innerHTML = "Total Price: " + "$" + sum;
   document.querySelector(".totalItems").innerHTML = "Total Items: " + countItems;
-  root.style.setProperty('--after-content', `"${countItems}"`)
+  root.style.setProperty('--after-content', `"${countItems}"`);
+
+  // if(mapTest.has(cardTitle)){
+  //   removeItem(cardTitle + "/+/" +  cardPrice);
+  //   mapTest.set(cardTitle, mapTest.get(cardTitle)+1);
+  // }else{
+  //   mapTest.set(cardTitle, 1);
+  // }
+  // in the HTML -               <span class="price">Quantity: $${mapTest.get(cardTitle)}</span>
+
   sideBar.innerHTML +=
         `
         <div class="item">
@@ -77,8 +80,8 @@ function removeItem(id){
   document.getElementById("total").innerHTML = "Total Price: " + "$" + sum;
   const item = document.getElementById(id);
   item.parentElement.parentElement.parentElement.remove();
-  // totalPrice.innerHTML = "Total: " + "$"- sum;
   itemArr.pop(id);
+
   countItems--;
   root.style.setProperty('--after-content', `"${countItems}"`)
   document.querySelector(".totalItems").innerHTML = "Total Items: " + countItems;
