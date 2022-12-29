@@ -21,6 +21,7 @@ shopBtn.addEventListener('click', function(){
   }
 });
 
+
 const itemArr = [];
 // const mapTest = new Map();
 function addToCart(item){
@@ -29,6 +30,7 @@ function addToCart(item){
 
   countItems++;
   itemArr.push(cardTitle);
+
   let cardPrice = item.children[3].innerHTML;
   cardPrice = cardPrice.substring(1);
   sum += parseFloat(cardPrice);
