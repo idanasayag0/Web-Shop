@@ -23,7 +23,7 @@ shopBtn.addEventListener('click', function(){
 
 
 const itemArr = [];
-// const mapTest = new Map();
+const mapTest = new Map();
 function addToCart(item){
   const cardImg = item.children[0].src;
   const cardTitle = item.children[1].innerHTML;
@@ -44,7 +44,7 @@ function addToCart(item){
   // }else{
   //   mapTest.set(cardTitle, 1);
   // }
-  // in the HTML -               <span class="price">Quantity: $${mapTest.get(cardTitle)}</span>
+  // in the HTML -               <span class="price">Quantity: ${mapTest.get(cardTitle)}</span>
 
   sideBar.innerHTML +=
         `
@@ -66,7 +66,7 @@ searchBar.addEventListener('input', function(){
   const search = searchBar.value;
   for(let i=0; i<allItems.children.length; i++){
     if(allItems.children[i].children[1].innerHTML.toLowerCase().includes(search.toLowerCase())){
-      allItems.children[i].style.display = "block";
+      allItems.children[i].style.display = "flex";
     }
     else{
       allItems.children[i].style.display = "none";
